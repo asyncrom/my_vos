@@ -22,10 +22,11 @@ stages:
     - apt-get update
 
   # Put your custom actions behind this comment
-  - name: example-modules # Sample module demonstrating importing local and remote modules
-    type: includes
-    includes:
-      - modules/50-install-debs.yml # Sample local module present in this repository
+  - name: install-debs
+    type: shell
+    commands:
+    - bash /deb-pkgs/install-debs.sh
+    - rm -rf /deb-pkgs
 
   # Put your custom actions before this comment
 
